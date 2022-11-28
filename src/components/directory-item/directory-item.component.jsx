@@ -1,14 +1,14 @@
-import "./category-item.styles.scss";
+import "./directory-item.styles.scss";
 
-const CatergoryItem = ({ category }) => {
+const DirectoryItem = ({ category }) => {
   const { title, imageUrl, subtitle } = category;
   return (
-    <div className="category-container">
+    <div className="directory-item-container">
       <div
         className="background-image"
         style={{ backgroundImage: `url(${imageUrl})` }}
       />
-      <div className="category-body-container">
+      <div className="body">
         <h2>{title.toUpperCase()}</h2>
         <p>{subtitle.toUpperCase()}</p>
       </div>
@@ -16,4 +16,4 @@ const CatergoryItem = ({ category }) => {
   );
 };
 
-export default CatergoryItem;
+export default DirectoryItem;

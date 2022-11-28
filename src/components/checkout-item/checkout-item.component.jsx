@@ -1,4 +1,4 @@
-import "./checout-item.scss";
+import "./checout-item.styles.scss";
 
 import React, { useContext } from "react";
 import { CartContext } from "../../contexts/cart.context";
