@@ -4,8 +4,7 @@ import Navigation from "./routes/nagvigation/navigation.component";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
-import {} from "@fortawesome/free-solid-svg-icons";
-import Authentication from "./routes/authentication/Authentication.component";
+import Authentication from "./routes/authentication/authentication.component";
 import Shop from "./routes/shop/shop.component";
 import Checkout from "./routes/checkout/checkout.component";
 
