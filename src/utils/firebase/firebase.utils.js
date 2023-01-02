@@ -7,6 +7,7 @@ import {
   createUserWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  updateProfile,
 } from "firebase/auth";
 
 import {
@@ -88,6 +89,9 @@ export const createUserDocumentFromAuth = async (
         email,
         createdAt,
         ...additionalInformation,
+      });
+      await updateProfile(auth.currentUser, {
+        displayName: additionalInformation.displayName,
       });
     } catch (error) {
       console.log("error creating the user", error.message);

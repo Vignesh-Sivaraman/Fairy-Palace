@@ -1,13 +1,10 @@
-import { Fragment, useContext } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Fragment } from "react";
+import { Outlet } from "react-router-dom";
 
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
-import { CartContext } from "../../contexts/cart.context";
-
 import { ReactComponent as CrwnLogo } from "../../assets/images/crown.svg";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
-
 import {
   NavigationContainer,
   NavLinks,
@@ -16,10 +13,13 @@ import {
 } from "./navigation.styles";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector";
+import { selectIsCartOpen } from "../../store/cart/cart.selector";
 
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
-  const { isCartOpen } = useContext(CartContext);
+  const isCartOpen = useSelector(selectIsCartOpen);
+
+  console.log(currentUser);
 
   return (
     <Fragment>
@@ -28,6 +28,11 @@ const Navigation = () => {
           <CrwnLogo className="logo" />
         </LogoContainer>
         <NavLinks>
+          {currentUser ? (
+            <NavLink as="span">{currentUser.displayName.toUpperCase()}</NavLink>
+          ) : (
+            ""
+          )}
           <NavLink to="/shop">SHOP</NavLink>
 
           {currentUser ? (

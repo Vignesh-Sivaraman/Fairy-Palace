@@ -32,13 +32,16 @@ const SignUpForm = () => {
       alert("passwords do not match");
       return;
     }
+    if (password.length < 6) {
+      alert("passwords must have atleat 6 characters");
+      return;
+    }
 
     try {
       const { user } = await createAuthUserWithEmailAndPassword(
         email,
         password
       );
-
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
     } catch (error) {
