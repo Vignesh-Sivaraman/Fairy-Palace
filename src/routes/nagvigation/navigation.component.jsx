@@ -28,8 +28,8 @@ const Navigation = () => {
           <CrwnLogo className="logo" />
         </LogoContainer>
         <NavLinks>
-          {currentUser ? (
-            <NavLink as="span">{currentUser.displayName.toUpperCase()}</NavLink>
+          {currentUser !== null ? (
+            <NavLink as="span">{currentUser.displayName}</NavLink>
           ) : (
             ""
           )}
